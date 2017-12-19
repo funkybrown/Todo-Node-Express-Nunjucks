@@ -64,7 +64,6 @@ exports.completed = function(req, res, next) {
 exports.markCompleted = function(req, res, next) {
   if (!req.body.completed) return next(new Error('Param is missing.'));
   var completed = req.body.completed === 'true';
-
   MongoClient.connect(req.uri, function(err, db) {
     var collection = db.collection('tasks');
     collection.updateOne({'_id': req.task._id}, 
