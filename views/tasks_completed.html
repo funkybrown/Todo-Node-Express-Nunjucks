@@ -1,0 +1,15 @@
+{% set title = 'Tasks Completed' %}
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h1>Completed</h1>
+    {% for item in tasks %}
+    <div class="item">
+    <div class="num"><span>{{loop.index}}&nbsp;</span></div>
+    <div class="name completed-task"><span class="name"> {{ item.name }} (Completed at: {{ moment(item.completeTime).format("YYYY/MM/DD") }})</span></div>
+  </div>
+  {% else %}
+        No tasks.
+  {% endfor %}
+   
+{% endblock %}

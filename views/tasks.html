@@ -1,0 +1,42 @@
+{% set title = 'Tasks' %}
+{% extends 'layout.html' %}
+
+
+{% block content %}
+<h1>Todo List</h1>
+<div class="list"><div class="item add-task">
+    <div class="action">
+        <form action="/tasks" method="post">
+            <input type="hidden" value="true" name="all_done">
+            <input type="hidden" value="{{ _csrf }}" name="_csrf">
+            <input type="submit" value="all done" class="btn btn-success btn-xs"></form>
+        </div>
+        <form action="/tasks" method="post">
+            <input type="hidden" value="{{ _csrf }}" name="_csrf">
+            <div class="name">
+                <input type="text" name="name" placeholder="Add a new task"></div>
+                <div class="delete">
+                    <input type="submit" value="add" class="btn btn-primary btn-sm"></div>
+                </form></div>
+                {% for task in tasks %}
+                <div class="item">
+                    <div class="action">
+                    <form action="/tasks/5a244bec4e5b3940bca43e48" method="post">
+                        <input type="hidden" value="{{ task._id.toString() }}" name="id">
+                        <input type="hidden" value="{{ task.completed }}" name="completed">
+                        <input type="hidden" value="{{ _csrf }}" name="_csrf">
+                        <input type="submit" value="done" class="btn btn-success btn-xs task-done">
+                    </form>
+                    </div>
+                    <div class="num"><span>{{loop.index}}&nbsp;</span></div>
+                    <div class="name"><span class="name">{{ task.name }} (Created at: {{ moment(task.completeTime).format("YYYY/MM/DD") }})</span></div>
+                    <div class="delete">
+                       <a data-task-id="{{ task._id.toString() }}" data-csrf="{{ _csrf }}" class="btn btn-danger btn-xs task-delete">delete</a>
+                   </div>
+                </div>
+                {% else %}
+                    No tasks.
+                {% endfor %}
+
+
+{% endblock %}

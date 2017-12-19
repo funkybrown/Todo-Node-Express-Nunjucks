@@ -1,0 +1,37 @@
+<!DOCTYPE html><html>
+    <head>
+        <title>Home | Express.js Todo App</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="/bootstrap/bootstrap.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+    </head>
+    <body>
+            
+        <div class="container">
+            <div class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a href="/" class="navbar-brand">Express.js Todo App</a>
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-dismissable"></div>
+            <h1>Home</h1
+                ><p>Welcome to Express.js Todo app by&nbsp;
+                    <a href="http://twitter.com/azat_co">@azat_co</a>. Please enjoy.</p>
+                    <div class="menu"><h2>Menu</h2
+                        ><ul class="nav nav-pills">
+                            <li class="active"><a href="/">Home</a></li>
+                                <li>
+                                    <a href="/tasks">Todo List</a>
+                                    </li>
+                                    <li>
+                                        <a href="/tasks/completed">Completed</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            {% block content %} {% endblock %}
+                                </body>
+                                <script src="/javascripts/jquery.js" type="text/javascript"></script>
+                                <script src="/javascripts/main.js" type="text/javascript"></script>
+                                </html>
